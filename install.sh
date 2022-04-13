@@ -372,8 +372,8 @@ function ssl_install() {
 }
 
 function acme() {
-  "$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-
+ # "$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+"$HOME"/.acme.sh/acme.sh --register-account -m AA@QQ.com
   sed -i "6s/^/#/" "$nginx_conf"
   sed -i "6a\\\troot $website_dir;" "$nginx_conf"
   systemctl restart nginx
